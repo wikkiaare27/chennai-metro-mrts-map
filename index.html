@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Chennai Metro & MRTS Connectivity Map</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+
+    <div>
+        <h1>Chennai Metro & MRTS</h1>
+        <p>Chennai Urban Rail Connectivity Map</p>
+    </div>
+
+    <div class="status">
+        <span class="dot"></span>
+        Welcome, Traveller
+    </div>
+
+</header>
+
+
+<section class="controls">
+
+    <div class="search-box">
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search station..."
+            autocomplete="off">
+
+        <button onclick="clearSearch()">Clear</button>
+
+    </div>
+
+
+    <div class="line-buttons">
+
+        <button class="filter-btn active"
+                data-line="all">
+            All
+        </button>
+
+        <button class="filter-btn blue"
+                data-line="blue">
+            🔵 Blue
+        </button>
+
+        <button class="filter-btn green"
+                data-line="green">
+            🟢 Green
+        </button>
+
+        <button class="filter-btn yellow"
+                data-line="yellow">
+            🟡 Yellow
+        </button>
+
+        <button class="filter-btn mrts"
+                data-line="mrts">
+            🚆 MRTS
+        </button>
+
+        <button class="filter-btn interchange"
+                data-line="interchange">
+            🔄 Interchanges
+        </button>
+
+    </div>
+
+</section>
+
+
+<main>
+
+    <section class="map-container">
+
+        <div class="map-title">
+
+            <div>
+                <h2>Chennai Rail Network</h2>
+                <p>
+                    Metro + MRTS connectivity
+                </p>
+            </div>
+
+            <div class="map-actions">
+
+                <button onclick="zoomIn()">+</button>
+                <button onclick="zoomOut()">−</button>
+                <button onclick="resetMap()">Reset</button>
+
+            </div>
+
+        </div>
+
+
+        <div id="mapViewport">
+
+            <div id="railMap">
+
+                <!-- BLUE LINE -->
+
+                <div class="line blue-line">
+
+                    <div class="line-label">
+                        BLUE LINE
+                    </div>
+
+                    <div class="station"
+                         data-name="Wimco Nagar Depot"
+                         data-line="blue"
+                         style="left:8%;top:12%;">
+                        <span>Wimco Nagar Depot</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Wimco Nagar"
+                         data-line="blue"
+                         style="left:12%;top:16%;">
+                        <span>Wimco Nagar</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thiruvottriyur"
+                         data-line="blue"
+                         style="left:16%;top:20%;">
+                        <span>Thiruvottriyur</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thiruvottriyur Theradi"
+                         data-line="blue"
+                         style="left:20%;top:24%;">
+                        <span>Thiruvottriyur Theradi</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Kaladipet"
+                         data-line="blue"
+                         style="left:24%;top:28%;">
+                        <span>Kaladipet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Tollgate"
+                         data-line="blue"
+                         style="left:28%;top:32%;">
+                        <span>Tollgate</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="New Washermenpet"
+                         data-line="blue"
+                         style="left:32%;top:36%;">
+                        <span>New Washermenpet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Tondiarpet"
+                         data-line="blue"
+                         style="left:36%;top:40%;">
+                        <span>Tondiarpet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Sir Thiyagaraya College"
+                         data-line="blue"
+                         style="left:40%;top:44%;">
+                        <span>Thiyagaraya College</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Washermenpet"
+                         data-line="blue"
+                         style="left:44%;top:48%;">
+                        <span>Washermenpet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Mannadi"
+                         data-line="blue"
+                         style="left:48%;top:52%;">
+                        <span>Mannadi</span>
+                    </div>
+
+                    <!-- CENTRAL INTERCHANGE -->
+
+                    <div class="station interchange-station"
+                         data-name="Chennai Central"
+                         data-line="blue"
+                         data-interchange="true"
+                         style="left:52%;top:56%;">
+
+                        <span>Chennai Central</span>
+
+                    </div>
+
+                    <div class="station"
+                         data-name="Government Estate"
+                         data-line="blue"
+                         style="left:56%;top:60%;">
+                        <span>Government Estate</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="LIC"
+                         data-line="blue"
+                         style="left:60%;top:64%;">
+                        <span>LIC</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thousand Lights"
+                         data-line="blue"
+                         style="left:64%;top:68%;">
+                        <span>Thousand Lights</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="AG-DMS"
+                         data-line="blue"
+                         style="left:68%;top:72%;">
+                        <span>AG-DMS</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Teynampet"
+                         data-line="blue"
+                         style="left:72%;top:76%;">
+                        <span>Teynampet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Nandanam"
+                         data-line="blue"
+                         style="left:76%;top:80%;">
+                        <span>Nandanam</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Saidapet"
+                         data-line="blue"
+                         style="left:80%;top:84%;">
+                        <span>Saidapet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Little Mount"
+                         data-line="blue"
+                         style="left:84%;top:88%;">
+                        <span>Little Mount</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Guindy"
+                         data-line="blue"
+                         data-interchange="true"
+                         style="right:05%;top:84%;">
+                        <span>Guindy</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Alandur"
+                         data-line="blue"
+                         data-interchange="true"
+                         style="left:88%;top:76%;">
+                        <span>Alandur</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="OTA Nanganallur Road"
+                         data-line="blue"
+                         style="left:88%;top:68%;">
+                        <span>OTA-Nanganallur</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Meenambakkam"
+                         data-line="blue"
+                         style="left:88%;top:60%;">
+                        <span>Meenambakkam</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Chennai Airport"
+                         data-line="blue"
+                         style="left:88%;top:52%;">
+                        <span>Airport Metro</span>
+                    </div>
+
+                </div>
+
+
+                <!-- GREEN LINE -->
+
+                <div class="line green-line">
+
+                    <div class="line-label">
+                        GREEN LINE
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Chennai Central"
+                         data-line="green"
+                         data-interchange="true"
+						 interchange-type="Metro-Suburban"
+                         style="left:52%;top:56%;">
+                        <span>Chennai Central</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Egmore"
+                         data-line="green"
+                         style="left:52%;top:48%;">
+                        <span>Egmore</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Nehru Park"
+                         data-line="green"
+                         style="left:52%;top:40%;">
+                        <span>Nehru Park</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Kilpauk Medical College"
+                         data-line="green"
+                         style="left:52%;top:32%;">
+                        <span>Kilpauk</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Pachaiyappa College"
+                         data-line="green"
+                         style="left:56%;top:28%;">
+                        <span>Pachaiyappa's College</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Shenoy Nagar"
+                         data-line="green"
+                         style="left:60%;top:24%;">
+                        <span>Shenoy Nagar</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Anna Nagar East"
+                         data-line="green"
+                         style="left:64%;top:20%;">
+                        <span>Anna Nagar East</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Anna Nagar Tower"
+                         data-line="green"
+                         style="left:68%;top:18%;">
+                        <span>Anna Nagar Tower</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thirumangalam"
+                         data-line="green"
+                         style="left:72%;top:18%;">
+                        <span>Thirumangalam</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Koyambedu"
+                         data-line="green"
+                         style="left:76%;top:22%;">
+                        <span>Koyambedu</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="CMBT"
+                         data-line="green"
+                         style="left:80%;top:28%;">
+                        <span>CMBT</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Arumbakkam"
+                         data-line="green"
+                         style="left:84%;top:34%;">
+                        <span>Arumbakkam</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Ashok Nagar"
+                         data-line="green"
+                         style="left:90%;top:46%;">
+                        <span>Ashok Nagar</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Ekkattuthangal"
+                         data-line="green"
+                         style="left:90%;top:52%;">
+                        <span>Ekkattuthangal</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Alandur"
+                         data-line="green"
+                         data-interchange="true"
+                         style="left:88%;top:76%;">
+                        <span>Alandur</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="St Thomas Mount"
+                         data-line="green"
+                         data-interchange="true"
+                         style="left:82%;top:88%;">
+                        <span>St. Thomas Mount</span>
+                    </div>
+
+                </div>
+
+
+                <!-- YELLOW LINE -->
+
+                <div class="line yellow-line">
+
+                    <div class="line-label">
+                        YELLOW LINE
+                    </div>
+
+                    <div class="station"
+                         data-name="Poonamallee Bypass"
+                         data-line="yellow"
+                         style="left:14%;top:86%;">
+                        <span>Poonamallee Bypass</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Poonamallee"
+                         data-line="yellow"
+                         style="left:20%;top:82%;">
+                        <span>Poonamallee</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Mullaithottam"
+                         data-line="yellow"
+                         style="left:24%;top:76%;">
+                        <span>Mullaithottam</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Karayanchavadi"
+                         data-line="yellow"
+                         style="left:29%;top:70%;">
+                        <span>Karayanchavadi</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Kumamanchavadi"
+                         data-line="yellow"
+                         style="left:33%;top:66%;">
+                        <span>Kumamanchavadi</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Kattukuppam"
+                         data-line="yellow"
+                         style="left:39%;top:62%;">
+                        <span>Kattukuppam</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Iyyapanthangal"
+                         data-line="yellow"
+                         style="left:44%;top:58%;">
+                        <span>Iyyapanthangal</span>
+                    </div>
+					
+					<div class="station"
+                         data-name="Thelliyaragaram"
+                         data-line="yellow"
+                         style="left:49%;top:53;">
+                        <span>Thelliyaragaram</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Porur"
+                         data-line="yellow"
+                         style="left:53%;top:48%;">
+                        <span>Porur Bypass</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Porur Junction"
+                         data-line="yellow"
+                         style="left:58%;top:43%;">
+                        <span>Porur Junction</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Vadapalani"
+                         data-line="yellow"
+                         data-interchange="true"
+                         style="left:88%;top:40%;">
+                        <span>Vadapalani</span>
+                    </div>
+
+                </div>
+
+
+                <!-- MRTS -->
+
+                <div class="line mrts-line">
+
+                    <div class="line-label">
+                        MRTS (Chennai Beach - Velachery - St. Thomas Mount)
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Chennai Beach"
+                         data-line="mrts"
+                         data-interchange="true"
+                         style="left:38%;top:12%;">
+                        <span>Chennai Beach</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Chennai Fort"
+                         data-line="mrts"
+                         style="left:40%;top:18%;">
+                        <span>Fort</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="Park Town"
+                         data-line="mrts"
+                         data-interchange="true"
+                         style="left:46%;top:24%;">
+                        <span>Park Town</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Chintadripet"
+                         data-line="mrts"
+                         style="left:50%;top:30%;">
+                        <span>Chintadripet</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Chepauk"
+                         data-line="mrts"
+                         style="left:54%;top:36%;">
+                        <span>Chepauk</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Tiruvallikeni"
+                         data-line="mrts"
+                         style="left:58%;top:42%;">
+                        <span>Tiruvallikeni</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Light House"
+                         data-line="mrts"
+                         style="left:62%;top:48%;">
+                        <span>Light House</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Mundakakanni Amman Koil"
+                         data-line="mrts"
+                         style="left:66%;top:54%;">
+                        <span>Mundakakanni Amman Koil</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thirumayilai"
+                         data-line="mrts"
+                         style="left:70%;top:60%;">
+                        <span>Thirumayilai</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Mandaveli"
+                         data-line="mrts"
+                         style="left:74%;top:64%;">
+                        <span>Mandaveli</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Greenways Road"
+                         data-line="mrts"
+                         style="left:78%;top:68%;">
+                        <span>Greenways Road</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Kotturpuram"
+                         data-line="mrts"
+                         style="left:82%;top:72%;">
+                        <span>Kotturpuram</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Kasturba Nagar"
+                         data-line="mrts"
+                         style="left:84%;top:76%;">
+                        <span>Kasturba Nagar</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Indira Nagar"
+                         data-line="mrts"
+                         style="left:86%;top:80%;">
+                        <span>Indira Nagar</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Thiruvanmiyur"
+                         data-line="mrts"
+                         style="left:88%;top:84%;">
+                        <span>Thiruvanmiyur</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Taramani"
+                         data-line="mrts"
+                         style="left:86%;top:88%;">
+                        <span>Taramani</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Perungudi"
+                         data-line="mrts"
+                         style="left:82%;top:92%;">
+                        <span>Perungudi</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Velachery"
+                         data-line="mrts"
+                         style="left:76%;top:94%;">
+                        <span>Velachery</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Puzhuthivakkam"
+                         data-line="mrts"
+                         style="left:70%;top:94%;">
+                        <span>Puzhuthivakkam</span>
+                    </div>
+
+                    <div class="station"
+                         data-name="Adambakkam"
+                         data-line="mrts"
+                         style="left:64%;top:94%;">
+                        <span>Adambakkam</span>
+                    </div>
+
+                    <div class="station interchange-station"
+                         data-name="St Thomas Mount"
+                         data-line="mrts"
+                         data-interchange="true"
+                         style="left:58%;top:90%;">
+                        <span>St. Thomas Mount</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="legend">
+
+            <div>
+                <span class="legend-line blue-bg"></span>
+                Blue Line
+            </div>
+
+            <div>
+                <span class="legend-line green-bg"></span>
+                Green Line
+            </div>
+
+            <div>
+                <span class="legend-line yellow-bg"></span>
+                Yellow Line
+            </div>
+
+            <div>
+                <span class="legend-line mrts-bg"></span>
+                MRTS
+            </div>
+
+            <div>
+                <span class="legend-interchange"></span>
+                Interchange
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION PANEL -->
+
+    <aside id="stationPanel"
+           class="station-panel">
+
+        <button class="close-panel"
+                onclick="closePanel()">
+            ×
+        </button>
+
+        <div id="stationIcon">
+            🚉
+        </div>
+
+        <h2 id="panelTitle">
+            Select a station
+        </h2>
+
+        <p id="panelDescription">
+            Click any station on the map to see
+            its connectivity.
+        </p>
+
+        <div id="connections"></div>
+
+    </aside>
+
+</main>
+
+
+<footer>
+
+    <p>
+        Chennai Metro + MRTS Connectivity Map
+    </p>
+
+    <p class="small">
+        Static visualization for informational use.
+    </p>
+	
+	<p class="small">
+		Wikki Aare || Version 1.0
+	</p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>

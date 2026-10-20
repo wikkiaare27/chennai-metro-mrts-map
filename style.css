@@ -1,0 +1,1235 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        #f4f6f9;
+
+    color:
+        #1f2937;
+
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.topbar {
+
+    background:
+        #111827;
+
+    color:
+        white;
+
+    padding:
+        18px 28px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    gap:
+        20px;
+
+}
+
+.topbar h1 {
+
+    font-size:
+        25px;
+
+}
+
+.topbar p {
+
+    color:
+        #cbd5e1;
+
+    margin-top:
+        4px;
+
+    font-size:
+        14px;
+
+}
+
+
+.status {
+
+    background:
+        rgba(255,255,255,.1);
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        20px;
+
+    font-size:
+        13px;
+
+}
+
+.dot {
+
+    width:
+        9px;
+
+    height:
+        9px;
+
+    background:
+        #22c55e;
+
+    display:
+        inline-block;
+
+    border-radius:
+        50%;
+
+    margin-right:
+        6px;
+
+}
+
+
+/* =========================
+   CONTROLS
+========================= */
+
+.controls {
+
+    background:
+        white;
+
+    padding:
+        15px 25px;
+
+    border-bottom:
+        1px solid #ddd;
+
+}
+
+.search-box {
+
+    display:
+        flex;
+
+    max-width:
+        600px;
+
+    margin-bottom:
+        12px;
+
+}
+
+.search-box input {
+
+    flex:
+        1;
+
+    padding:
+        12px 15px;
+
+    border:
+        1px solid #cbd5e1;
+
+    border-radius:
+        8px 0 0 8px;
+
+    font-size:
+        15px;
+
+    outline:
+        none;
+
+}
+
+.search-box input:focus {
+
+    border-color:
+        #2563eb;
+
+}
+
+.search-box button {
+
+    border:
+        none;
+
+    background:
+        #111827;
+
+    color:
+        white;
+
+    padding:
+        0 18px;
+
+    border-radius:
+        0 8px 8px 0;
+
+    cursor:
+        pointer;
+
+}
+
+
+.line-buttons {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        8px;
+
+}
+
+.filter-btn {
+
+    border:
+        1px solid #d1d5db;
+
+    background:
+        white;
+
+    padding:
+        8px 14px;
+
+    border-radius:
+        20px;
+
+    cursor:
+        pointer;
+
+    font-size:
+        13px;
+
+    transition:
+        .2s;
+
+}
+
+.filter-btn:hover {
+
+    transform:
+        translateY(-1px);
+
+}
+
+.filter-btn.active {
+
+    background:
+        #111827;
+
+    color:
+        white;
+
+}
+
+.filter-btn.blue:hover {
+
+    border-color:
+        #0072bc;
+
+}
+
+.filter-btn.green:hover {
+
+    border-color:
+        #00843d;
+
+}
+
+.filter-btn.yellow:hover {
+
+    border-color:
+        #e3b505;
+
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+main {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        1fr 300px;
+
+    min-height:
+        750px;
+
+}
+
+
+.map-container {
+
+    background:
+        white;
+
+    margin:
+        15px;
+
+    border-radius:
+        14px;
+
+    overflow:
+        hidden;
+
+    border:
+        1px solid #e2e8f0;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.05);
+
+}
+
+
+.map-title {
+
+    padding:
+        15px 20px;
+
+    display:
+        flex;
+
+    justify-content:
+        space-between;
+
+    align-items:
+        center;
+
+    border-bottom:
+        1px solid #eee;
+
+}
+
+.map-title h2 {
+
+    font-size:
+        20px;
+
+}
+
+.map-title p {
+
+    font-size:
+        12px;
+
+    color:
+        #64748b;
+
+    margin-top:
+        3px;
+
+}
+
+
+.map-actions {
+
+    display:
+        flex;
+
+    gap:
+        5px;
+
+}
+
+.map-actions button {
+
+    border:
+        1px solid #d1d5db;
+
+    background:
+        white;
+
+    padding:
+        6px 10px;
+
+    border-radius:
+        5px;
+
+    cursor:
+        pointer;
+
+}
+
+
+/* =========================
+   MAP
+========================= */
+
+#mapViewport {
+
+    height:
+        680px;
+
+    overflow:
+        auto;
+
+    position:
+        relative;
+
+    background:
+        #f8fafc;
+
+}
+
+#railMap {
+
+    position:
+        relative;
+
+    width:
+        1100px;
+
+    height:
+        680px;
+
+    background:
+        radial-gradient(
+            circle at 50% 50%,
+            #ffffff 0,
+            #f8fafc 55%,
+            #eef2f7 100%
+        );
+
+    transform-origin:
+        top left;
+
+    transition:
+        transform .3s;
+
+}
+
+
+/* Chennai water area */
+
+#railMap::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    right:
+        0;
+
+    top:
+        0;
+
+    width:
+        12%;
+
+    height:
+        100%;
+
+    background:
+        rgba(59,130,246,.06);
+
+    border-left:
+        2px solid rgba(59,130,246,.08);
+
+    pointer-events:
+        none;
+
+}
+
+
+/* =========================
+   RAIL LINES
+========================= */
+
+.line {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    pointer-events:
+        none;
+
+}
+
+
+/*
+   Schematic connecting lines
+*/
+
+.line::before {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    height:
+        6px;
+
+    border-radius:
+        5px;
+
+    transform-origin:
+        left center;
+
+}
+
+
+/* BLUE */
+
+.blue-line::before {
+
+    width:
+        88%;
+
+    left:
+        8%;
+
+    top:
+        50%;
+
+    background:
+        #0072bc;
+
+    transform:
+        rotate(27deg);
+
+}
+
+
+/* GREEN */
+
+.green-line::before {
+
+    width:
+        62%;
+
+    left:
+        50%;
+
+    top:
+        56%;
+
+    background:
+        #00843d;
+
+    transform:
+        rotate(-55deg);
+
+}
+
+
+/* YELLOW */
+
+.yellow-line::before {
+
+    width:
+        75%;
+
+    left:
+        14%;
+
+    top:
+        86%;
+
+    background:
+        #e3b505;
+
+    transform:
+        rotate(-35deg);
+
+}
+
+
+/* MRTS */
+
+.mrts-line::before {
+
+    width:
+        70%;
+
+    left:
+        38%;
+
+    top:
+        12%;
+
+    background:
+        #f97316;
+
+    transform:
+        rotate(58deg);
+
+}
+
+
+/* =========================
+   LINE LABEL
+========================= */
+
+.line-label {
+
+    position:
+        absolute;
+
+    padding:
+        5px 10px;
+
+    border-radius:
+        5px;
+
+    color:
+        white;
+
+    font-weight:
+        bold;
+
+    font-size:
+        11px;
+
+    z-index:
+        4;
+
+}
+
+.blue-line .line-label {
+
+    background:
+        #0072bc;
+
+    left:
+        10%;
+
+    top:
+        7%;
+
+}
+
+.green-line .line-label {
+
+    background:
+        #00843d;
+
+    left:
+        53%;
+
+    top:
+        15%;
+
+}
+
+.yellow-line .line-label {
+
+    background:
+        #c99d00;
+
+    left:
+        18%;
+
+    top:
+        90%;
+
+}
+
+.mrts-line .line-label {
+
+    background:
+        #f97316;
+
+    left:
+        42%;
+
+    top:
+        5%;
+
+}
+
+
+/* =========================
+   STATIONS
+========================= */
+
+.station {
+
+    position:
+        absolute;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    border-radius:
+        50%;
+
+    background:
+        white;
+
+    border:
+        4px solid #334155;
+
+    transform:
+        translate(-50%, -50%);
+
+    z-index:
+        10;
+
+    cursor:
+        pointer;
+
+    pointer-events:
+        auto;
+
+    transition:
+        .2s;
+
+}
+
+.station:hover {
+
+    transform:
+        translate(-50%, -50%) scale(1.5);
+
+    z-index:
+        50;
+
+}
+
+.station span {
+
+    position:
+        absolute;
+
+    left:
+        18px;
+
+    top:
+        -5px;
+
+    white-space:
+        nowrap;
+
+    font-size:
+        10px;
+
+    background:
+        rgba(255,255,255,.94);
+
+    padding:
+        3px 5px;
+
+    border-radius:
+        3px;
+
+    box-shadow:
+        0 1px 4px rgba(0,0,0,.1);
+
+}
+
+
+/* LINE COLOURED STATIONS */
+
+.blue-line .station {
+
+    border-color:
+        #0072bc;
+
+}
+
+.green-line .station {
+
+    border-color:
+        #00843d;
+
+}
+
+.yellow-line .station {
+
+    border-color:
+        #d1a600;
+
+}
+
+.mrts-line .station {
+
+    border-color:
+        #f97316;
+
+}
+
+
+/* =========================
+   INTERCHANGE
+========================= */
+
+.interchange-station {
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    border:
+        5px solid #111827 !important;
+
+    background:
+        #ffffff;
+
+    box-shadow:
+        0 0 0 4px rgba(17,24,39,.12);
+
+}
+
+.interchange-station::after {
+
+    content:
+        "↔";
+
+    position:
+        absolute;
+
+    width:
+        18px;
+
+    height:
+        18px;
+
+    left:
+        -2px;
+
+    top:
+        -2px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    font-size:
+        10px;
+
+    font-weight:
+        bold;
+
+    color:
+        #111827;
+
+}
+
+
+/* =========================
+   LANDMARKS
+========================= */
+
+.landmark {
+
+    position:
+        absolute;
+
+    background:
+        white;
+
+    padding:
+        6px 9px;
+
+    border-radius:
+        5px;
+
+    font-size:
+        11px;
+
+    color:
+        #475569;
+
+    box-shadow:
+        0 2px 8px rgba(0,0,0,.08);
+
+    z-index:
+        2;
+
+}
+
+.airport {
+
+    left:
+        87%;
+
+    top:
+        45%;
+
+}
+
+.central {
+
+    left:
+        45%;
+
+    top:
+        48%;
+
+}
+
+.beach {
+
+    right:
+        2%;
+
+    top:
+        20%;
+
+}
+
+.cmbt {
+
+    left:
+        76%;
+
+    top:
+        30%;
+
+}
+
+
+/* =========================
+   LEGEND
+========================= */
+
+.legend {
+
+    display:
+        flex;
+
+    flex-wrap:
+        wrap;
+
+    gap:
+        18px;
+
+    padding:
+        12px 18px;
+
+    border-top:
+        1px solid #eee;
+
+    font-size:
+        12px;
+
+}
+
+.legend-line {
+
+    width:
+        28px;
+
+    height:
+        5px;
+
+    display:
+        inline-block;
+
+    margin-right:
+        5px;
+
+    vertical-align:
+        middle;
+
+    border-radius:
+        5px;
+
+}
+
+.blue-bg {
+    background:#0072bc;
+}
+
+.green-bg {
+    background:#00843d;
+}
+
+.yellow-bg {
+    background:#e3b505;
+}
+
+.mrts-bg {
+    background:#f97316;
+}
+
+.legend-interchange {
+
+    width:
+        14px;
+
+    height:
+        14px;
+
+    display:
+        inline-block;
+
+    border:
+        3px solid #111827;
+
+    border-radius:
+        50%;
+
+    margin-right:
+        5px;
+
+    vertical-align:
+        middle;
+
+}
+
+
+/* =========================
+   SIDE PANEL
+========================= */
+
+.station-panel {
+
+    margin:
+        15px 15px 15px 0;
+
+    background:
+        white;
+
+    border:
+        1px solid #e2e8f0;
+
+    border-radius:
+        14px;
+
+    padding:
+        25px;
+
+    position:
+        relative;
+
+    box-shadow:
+        0 3px 15px rgba(0,0,0,.05);
+
+}
+
+.close-panel {
+
+    position:
+        absolute;
+
+    right:
+        12px;
+
+    top:
+        10px;
+
+    border:
+        none;
+
+    background:
+        #f1f5f9;
+
+    border-radius:
+        50%;
+
+    width:
+        30px;
+
+    height:
+        30px;
+
+    cursor:
+        pointer;
+
+    font-size:
+        20px;
+
+}
+
+#stationIcon {
+
+    font-size:
+        40px;
+
+    margin-bottom:
+        15px;
+
+}
+
+#panelTitle {
+
+    font-size:
+        21px;
+
+    margin-bottom:
+        8px;
+
+}
+
+#panelDescription {
+
+    color:
+        #64748b;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.5;
+
+}
+
+.connection {
+
+    margin-top:
+        20px;
+
+    padding:
+        12px;
+
+    border-radius:
+        8px;
+
+    background:
+        #f8fafc;
+
+}
+
+.connection strong {
+
+    display:
+        block;
+
+    margin-bottom:
+        4px;
+
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+
+    text-align:
+        center;
+
+    padding:
+        20px;
+
+    background:
+        #111827;
+
+    color:
+        white;
+
+}
+
+footer .small {
+
+    color:
+        #94a3b8;
+
+    margin-top:
+        5px;
+
+    font-size:
+        11px;
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:900px) {
+
+    main {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+    .station-panel {
+
+        margin:
+            0 15px 15px 15px;
+
+        min-height:
+            200px;
+
+    }
+
+    .topbar {
+
+        flex-direction:
+            column;
+
+        align-items:
+            flex-start;
+
+    }
+
+}
+
+@media(max-width:600px) {
+
+    .topbar h1 {
+
+        font-size:
+            20px;
+
+    }
+
+    #mapViewport {
+
+        height:
+            600px;
+
+    }
+
+    .map-title {
+
+        align-items:
+            flex-start;
+
+        gap:
+            10px;
+
+    }
+
+}
